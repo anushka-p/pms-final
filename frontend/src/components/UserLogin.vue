@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -26,14 +27,43 @@ export default {
     };
   },
   methods: {
-    loginUser() {
-      if (this.$refs.form.validate()) {
-        // Perform login logic here (e.g., API call for authentication)
-        console.log('Login data:', {
+    
+   async loginUser() {
+try {
+  if (this.$refs.form.validate()) {
+        const user = {
           email: this.email,
-          password: this.password,
-        });
+          password: this.password
+        };
+        const response = await axios.post("/user/login", user);
+        // console.log(response.data.message);
+        if(response.data.message == "Invalid password"){
+          // console.log("jiiii");
+          alert("Invalid password")
+        }
+        else{
+          const token = response.data.token;
+        localStorage.setItem('token', token);
+        if(response.data.message == "student route"){
+          console.log("student");
+        }
+        else if(response.data.message == "college route"){
+          console.log("college");
+        }
+        }
+
+         // Redirect the user to the dashboard or any other authorized page
+        // For example: this.$router.push('/dashboard');
       }
+} catch (error) {
+  if(error.response.status == 409){
+    alert("Invalid password")
+  }
+  else{
+    console.log(error);
+  }
+}
+      
     },
   },
 };
