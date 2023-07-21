@@ -46,9 +46,11 @@ try {
         localStorage.setItem('token', token);
         if(response.data.message == "student route"){
           console.log("student");
+          this.$router.push('/student/home');
         }
         else if(response.data.message == "college route"){
           console.log("college");
+          this.$router.push('/college/home');
         }
         }
 

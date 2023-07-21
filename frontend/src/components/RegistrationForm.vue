@@ -63,6 +63,7 @@ export default {
           role: this.role,
         };
         const data = await axios.post("/user/signup", user);
+        this.$router.push('/user/login');
       } else {
         console.log('Form is invalid. Please check the fields.');
       }

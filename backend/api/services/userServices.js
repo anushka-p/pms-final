@@ -6,7 +6,8 @@ module.exports = {
  createUser: (body, callback) => {
     
     insertQuery = `insert into user_roles (useremail, password,role)
-    values ('${body.email}','${body.password}','${body.role}')`;
+    values ('${body.email}','${body.password}','${body.role}')
+    RETURNING id;`;
     client.query(insertQuery, (error, result) => {
       if (error) {
         return callback(error);
@@ -30,6 +31,11 @@ module.exports = {
       
     });
   },
+
+  //log out
+  logOutUser : (body, callback)=>{
+    
+  }
 
 //   VerifyUser: (body, callback) => {
 //     query = `Select * from user_roles where email = '${body.email}' `,
