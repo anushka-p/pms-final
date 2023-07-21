@@ -22,8 +22,8 @@ function verifyToken(req, res, next) {
 }
 
 function verifyAdmin(req, res, next) {
-  // Check if the user has the admin role
-  if (req.user.role !== "admin") {
+  // Check if the user has the college role
+  if (req.user.role !== "college") {
     return res.status(403).json({ message: "Unauthorized access" });
   }
 
@@ -31,7 +31,7 @@ function verifyAdmin(req, res, next) {
 }
 
 function verifyStudent(req, res, next) {
-  // Check if the user has the admin role
+  // Check if the user has the student role
   if (req.user.role !== "student") {
     return res.status(403).json({ message: "Unauthorized access" });
   }
