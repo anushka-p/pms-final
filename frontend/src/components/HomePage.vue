@@ -2,28 +2,43 @@
   <v-container fluid>
     <!-- Header Section -->
     <v-app-bar app color="primary" dark>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-toolbar-title>College Placement Portal</v-toolbar-title>
+      <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
+      <v-toolbar-title class="headline">College Placement Portal</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text to="user/login">Login</v-btn>
-      <v-btn color="secondary" to="user/registration">Register</v-btn>
+      <v-btn to="user/registration">Register</v-btn>
     </v-app-bar>
 
     <!-- Hero Section -->
-    <v-row justify="center" align="center">
-      <v-col cols="12" md="8">
-        <v-card elevation="4">
-          <v-img src="../assets/bg.jpg" height="400px"></v-img>
-          <v-card-title class="headline font-weight-bold">Welcome to Our College Placement Portal</v-card-title>
-          <v-card-text>
-            <p class="mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat justo vel facilisis fermentum.
-              Nulla facilisi. Sed in velit nec dolor tincidunt lacinia eu id ipsum. Sed a interdum nisi, a dapibus arcu.
-            </p>
-            <p>
-              Phasellus ac enim sed nisi faucibus mollis. Nullam vehicula metus ut dolor sollicitudin, eget egestas ipsum vestibulum.
-            </p>
-          </v-card-text>
+    <v-row justify="center" align="center" style="height: 60vh;">
+      <v-col cols="12" >
+        <v-card elevation="10" style="height: 60%;">
+            <div style="position: relative;">
+            <v-img
+              src="../assets/backg.jpg"
+              alt="Background Image"
+              height="60%"
+              width="100%"
+            ></v-img>
+            <div class="black-box">
+            <!-- Add the text content on top of the image -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%;">
+               <v-card-title  class="text-h2 font-weight-bold" align="center" style="color: white;"
+              >Welcome to Our College Placement Portal</v-card-title>
+            <v-spacer></v-spacer>
+              <v-card-text>
+                <p class="text-h4" align="center" style="color: white;">
+                  Unlock Your Potential: Step into a world of endless possibilities as you join our college placement portal, designed to guide you towards achieving your professional goals and landing your dream job. Embrace a seamless transition from college to the corporate world with our comprehensive placement portal, dedicated to fostering your growth and securing promising career prospects.
+                </p>
+              </v-card-text>
+              <v-col cols="auto">
+              <div class="text-center">
+            <v-btn size="large" color="primary" to="user/registration" >Let's get started</v-btn>
+          </div>
+          </v-col>
+          </div>
+              </div>
+              </div>
         </v-card>
       </v-col>
     </v-row>
@@ -32,10 +47,21 @@
 
 <script>
 export default {
-  name: 'Home',
+  name: "Home",
 };
 </script>
 
 <style>
-/* Add custom styles if needed */
-</style>
+.black-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 115%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Use rgba to set the background color with transparency */
+  padding: 210px;
+  /* Adjust padding to your preference */
+  border-radius: 5px;
+  /* Add border radius for a rounded corner effect */
+}</style>
