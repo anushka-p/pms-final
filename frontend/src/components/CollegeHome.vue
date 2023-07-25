@@ -1,3 +1,4 @@
+
 <template>
     <v-container>
       <!-- Section 1: First vertical section -->
@@ -13,6 +14,9 @@
             <v-card-text>
               <!-- Content for section 1 goes here -->
               <v-btn color="primary" @click="showAllStudents">Show All Students</v-btn>
+
+              <all-students-list :students="studentsList" v-if="showStudentsList" />
+
             </v-card-text>
           </v-card>
         </v-col>
@@ -29,6 +33,9 @@
             <v-card-text>
               <!-- Content for section 2 goes here -->
               <v-btn color="primary" @click="filterStudents">Filter Students by Placement Status</v-btn>
+
+              <all-students-with-internships :studentsint="studentsListWithInt" v-if="showStudentsListWithInt" />
+
             </v-card-text>
           </v-card>
         </v-col>
@@ -38,14 +45,69 @@
 
 <script>
 
+import axios from 'axios';
+import AllStudentsList from "../components/AllStudentsList.vue";
+import AllStudentsWithInternships from '../components/AllStudentsWithInternships.vue';
+import jwtDecode from 'jwt-decode';
 export default {
+  components: {
+    AllStudentsList,
+    AllStudentsWithInternships,
+  },
+  data() {
+    return {
+      showStudentsList: false,
+      studentsList: [], // An array to store the list of students
+      showStudentsListWithInt:false,
+      studentsListWithInt:[],
+    };
+  },
   methods: {
-    showAllStudents() {
-      // Add your logic here to show details of all registered students
-      // You can navigate to a new route or display the details in a dialog or table, etc.
-      
+   async showAllStudents() {
+      const token = localStorage.getItem("token");
+      const decodedToken = jwtDecode(token);
+      const user_id = decodedToken.user_id;
+      this.studentsList = [];
+      try {
+        // Fetch the list of students from your API endpoint
+        const response = await axios.get(`/college/get-all-students/${user_id}`);
+        const studentdata = response.data.data;
+        if(!studentdata)
+        {
+          alert("No Students registered yet!");
+        }
+        else
+        {
+          this.studentsList = studentdata;
+          this.showStudentsList = true;
+        }
+       
+      } catch (error) {
+        console.error("Error fetching students data:", error);
+      }
     },
-    filterStudents() {
+    async filterStudents() {
+      const token = localStorage.getItem("token");
+      const decodedToken = jwtDecode(token);
+      const user_id = decodedToken.user_id;
+      this.studentsListWithInt = [];
+      try {
+        // Fetch the list of students from your API endpoint
+        const response = await axios.get(`/college/get-all-internships/${user_id}`);
+        const studentdata = response.data.data;
+        if(!studentdata)
+        {
+          alert("No student registered yet");
+        }
+        else{
+          this.studentsListWithInt = studentdata;
+          this.showStudentsListWithInt = true;
+        }
+        // Show the students list by setting the flag to true
+      } catch (error) {
+        console.error("Error fetching students data:", error);
+      }
+
       // Add your logic here to filter students based on their placement status
       // You can navigate to a new route or display the filtered students in a dialog or table, etc.
     },
@@ -74,4 +136,4 @@ export default {
   }
   </style>
   
-  
+
