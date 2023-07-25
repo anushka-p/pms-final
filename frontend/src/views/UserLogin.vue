@@ -3,7 +3,6 @@
   <v-app>
     <v-main>
       <v-container>
-        <h1>User Login</h1>
         <LoginForm />
       </v-container>
     </v-main>

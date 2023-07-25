@@ -1,7 +1,6 @@
 <template>
   <v-app>
   <v-main>
-  <h1>Namastey Duniya!!</h1>
   <HomePage />
 </v-main>
 </v-app>

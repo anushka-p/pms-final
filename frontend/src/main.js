@@ -16,7 +16,6 @@ import httpInterceptor from './interceptor'
 import { registerPlugins } from '@/plugins'
 
 const app = createApp(App)
-
 registerPlugins(app)
 httpInterceptor()
 app.mount('#app')

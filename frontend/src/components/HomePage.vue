@@ -6,7 +6,7 @@
       <v-toolbar-title class="headline">College Placement Portal</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text to="user/login">Login</v-btn>
-      <v-btn to="user/registration">Register</v-btn>
+      <v-btn color="white" to="user/registration">Register</v-btn>
     </v-app-bar>
 
     <!-- Hero Section -->
@@ -51,17 +51,9 @@ export default {
 };
 </script>
 
-<style>
-.black-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 115%;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Use rgba to set the background color with transparency */
-  padding: 210px;
-  /* Adjust padding to your preference */
-  border-radius: 5px;
-  /* Add border radius for a rounded corner effect */
-}</style>
+<style scoped>
+/* Add custom styles if needed */
+.text-center {
+  text-align: center !important;
+}
+</style>

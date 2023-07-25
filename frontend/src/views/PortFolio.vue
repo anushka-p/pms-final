@@ -2,18 +2,18 @@
     <v-app>
       <v-main>
         <v-container>
-          <h1>Hii Student</h1>
-          <Stubio />
+          <PortFolio />
         </v-container>
       </v-main>
     </v-app>
   </template>
   
   <script>
-  import Stubio from '../components/AddBio.vue';
+  import PortFolio from '../components/StudentPortfolio.vue';
+  
   export default {
     components: {
-      Stubio,
+      PortFolio,
     },
   };
   </script>

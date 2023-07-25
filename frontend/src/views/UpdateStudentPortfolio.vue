@@ -2,18 +2,17 @@
     <v-app>
       <v-main>
         <v-container>
-          <Stuhome />
+          <Updatestu />
         </v-container>
       </v-main>
     </v-app>
   </template>
   
   <script>
-  import Stuhome from '../components/StudentHome.vue';
-  
+  import Updatestu from '../components/UpdatePortfolio.vue';
   export default {
     components: {
-      Stuhome,
+      Updatestu,
     },
   };
   </script>

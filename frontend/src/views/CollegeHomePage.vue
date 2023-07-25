@@ -2,7 +2,6 @@
     <v-app>
       <v-main>
         <v-container>
-          <h1>Hii College</h1>
           <Collegehome />
         </v-container>
       </v-main>

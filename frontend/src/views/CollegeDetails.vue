@@ -1,19 +1,19 @@
-<template>
+<template v-if="">
     <v-app>
       <v-main>
         <v-container>
-          <Stuhome />
+          <CollegeNew />
         </v-container>
       </v-main>
     </v-app>
   </template>
   
   <script>
-  import Stuhome from '../components/StudentHome.vue';
+  import CollegeNew from '../components/CollegeDetails.vue';
   
   export default {
     components: {
-      Stuhome,
+      CollegeNew,
     },
   };
   </script>
