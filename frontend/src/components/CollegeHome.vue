@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 <template>
     <v-container>
       <!-- Section 1: First vertical section -->
@@ -15,7 +14,9 @@
             <v-card-text>
               <!-- Content for section 1 goes here -->
               <v-btn color="primary" @click="showAllStudents">Show All Students</v-btn>
+
               <all-students-list :students="studentsList" v-if="showStudentsList" />
+
             </v-card-text>
           </v-card>
         </v-col>
@@ -32,7 +33,9 @@
             <v-card-text>
               <!-- Content for section 2 goes here -->
               <v-btn color="primary" @click="filterStudents">Filter Students by Placement Status</v-btn>
+
               <all-students-with-internships :studentsint="studentsListWithInt" v-if="showStudentsListWithInt" />
+
             </v-card-text>
           </v-card>
         </v-col>
@@ -41,6 +44,7 @@
   </template>
 
 <script>
+
 import axios from 'axios';
 import AllStudentsList from "../components/AllStudentsList.vue";
 import AllStudentsWithInternships from '../components/AllStudentsWithInternships.vue';
@@ -103,6 +107,7 @@ export default {
       } catch (error) {
         console.error("Error fetching students data:", error);
       }
+
       // Add your logic here to filter students based on their placement status
       // You can navigate to a new route or display the filtered students in a dialog or table, etc.
     },
@@ -131,5 +136,4 @@ export default {
   }
   </style>
   
-  
->>>>>>> Stashed changes
+

@@ -16,6 +16,7 @@ return res.status(200).json({
         message: 'Internal Server Error',
       });
     }
+
 };
 //This is for showing all students in college homepage
 const getStudentbyCollegeid = async(req,res)=>{
@@ -38,12 +39,14 @@ else{
         });
       }
 };
-//
+
 const getcollegebyid = async (req,res)=>{
     try{
     const user_id = req.params.user_id;
     const college = await collegeServices.collegebyuserid(user_id);
+
     // console.log("cccccccccccccc",college);
+
     if(college.message){
         res.json({message : college.message})
     }
@@ -59,6 +62,7 @@ const getcollegebyid = async (req,res)=>{
           message: 'Internal Server Error',
         });
       }
+
 };
 // This is to return students having internships set as true
 const getStudentsHavingInternships = async(req,res)=>{
@@ -82,3 +86,4 @@ const getStudentsHavingInternships = async(req,res)=>{
         }
   };
 module.exports={addCollegeDetails, getcollegebyid, getStudentbyCollegeid, getStudentsHavingInternships}
+

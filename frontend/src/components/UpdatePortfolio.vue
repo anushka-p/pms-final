@@ -17,7 +17,9 @@
         <v-text-field v-model="portfolio.course" label="Course" required color="primary"></v-text-field>
       </v-col>
       <v-col cols="12" md="6">
+
         <v-text-field v-model="portfolio.phone" label="Phone Number"  required color="primary"></v-text-field>
+
       </v-col>
     </v-row>
 
@@ -60,9 +62,11 @@
         <v-btn color="primary" :disabled="isFormInvalid" type="submit">Submit</v-btn>
       </v-card-actions>
     </v-form>
+
     <v-snackbar v-model="successSnackbar" :timeout="timeout" color="success">
       Form updated successfully!
     </v-snackbar>
+
   </v-card>
 </template>
 
@@ -86,9 +90,11 @@ export default {
     skills: "",
     placed: false,
     college:"",
+
       },
       successSnackbar: false,
       timeout: 3000, 
+
     };
   },
   async mounted() {
@@ -123,6 +129,7 @@ export default {
       const decodedToken = jwtDecode(token);
         const user_id = decodedToken.user_id;
             const data = await axios.post(`student/add-updated-portfolio/${user_id}`,this.portfolio);
+
             this.successSnackbar = true;
 
 // Hide the snackbar after 3 seconds
@@ -134,6 +141,7 @@ setTimeout(() => {
 setTimeout(() => {
   this.$router.push('/student/home');
 }, 2000);
+
 
         }catch(e)
         {

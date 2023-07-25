@@ -17,6 +17,8 @@ module.exports= {
         const values = [user_id];
         try {
           const result = await client.query(query, values);
+
+
           if(result.rows.length == 0){
             return {message: "College not found"}
           }
@@ -27,6 +29,7 @@ module.exports= {
         } catch (error) {
           throw error;
         }
+
     },
     // To fetch the college id based on the given userid
    getCollegeIdByUserId: async (user_id) => {
@@ -74,4 +77,5 @@ module.exports= {
     }
   },
     
+
 }
