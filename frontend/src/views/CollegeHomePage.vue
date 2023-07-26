@@ -1,12 +1,6 @@
-<template v-if="">
-    <v-app>
-      <v-main>
-        <v-container>
-          <Collegehome />
-        </v-container>
-      </v-main>
-    </v-app>
-  </template>
+<template>
+      <Collegehome />
+</template>
   
   <script>
   import Collegehome from '../components/CollegeHome.vue';

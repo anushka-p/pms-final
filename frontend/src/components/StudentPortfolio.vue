@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mx-auto" max-width="600">
+    <v-card class="mx-auto" max-width="800">
       <v-form @submit.prevent="submitPortfolio">
         <v-card-title class="headline">Student Portfolio</v-card-title>
         <v-card-text>
