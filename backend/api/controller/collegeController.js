@@ -16,12 +16,37 @@ return res.status(200).json({
         message: 'Internal Server Error',
       });
     }
+
+};
+//This is for showing all students in college homepage
+const getStudentbyCollegeid = async(req,res)=>{
+try{
+  const user_id = req.params.user_id;
+  const cid = await collegeServices.getCollegeIdByUserId(user_id);
+  const students = await collegeServices.getStudentsByCollegeId(cid);
+  if(students.message){
+    res.json({message : students.message})
 }
+else{
+    return res.status(200).json({
+        data: students,
+      });
+}
+}catch (error) {
+        console.error('Error fetching student data:', error);
+        return res.status(500).json({
+          message: 'Internal Server Error',
+        });
+      }
+};
+
 const getcollegebyid = async (req,res)=>{
     try{
     const user_id = req.params.user_id;
     const college = await collegeServices.collegebyuserid(user_id);
-    console.log("cccccccccccccc",college);
+
+    // console.log("cccccccccccccc",college);
+
     if(college.message){
         res.json({message : college.message})
     }
@@ -37,5 +62,28 @@ const getcollegebyid = async (req,res)=>{
           message: 'Internal Server Error',
         });
       }
-}
-module.exports={addCollegeDetails, getcollegebyid}
+
+};
+// This is to return students having internships set as true
+const getStudentsHavingInternships = async(req,res)=>{
+  try{
+    const user_id = req.params.user_id;
+    const cid = await collegeServices.getCollegeIdByUserId(user_id);
+    const students = await collegeServices.getStudentsWithInternships(cid);
+    if(students.message){
+      res.json({message : students.message})
+  }
+  else{
+      return res.status(200).json({
+          data: students,
+        });
+  }
+  }catch (error) {
+          console.error('Error fetching student data:', error);
+          return res.status(500).json({
+            message: 'Internal Server Error',
+          });
+        }
+  };
+module.exports={addCollegeDetails, getcollegebyid, getStudentbyCollegeid, getStudentsHavingInternships}
+
