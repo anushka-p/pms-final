@@ -1,15 +1,5 @@
 <template>
   <v-card class="pa-10">
-    <!-- <v-app-bar app color="primary">
-      <v-toolbar-title>Student Portfolio</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn text to="update-portfolio" v-if="portfolioExists"
-        >Update Portfolio</v-btn
-      >
-      <v-btn text to="/student/portfolio" v-else>Create Portfolio</v-btn>
-      <v-btn @click="logout" text>Logout</v-btn>
-    </v-app-bar> -->
-
     <!-- <v-main>
       <v-container> -->
     <v-row class="content-row">
@@ -43,34 +33,6 @@
   </v-card>
 </template>
   
-    <v-row class="content-row">
-      <v-col class="custom-border" cols="6" >
-        <v-card-title>
-          <p class="pclass">
-            <b> Welcome, {{ studentName }}</b>
-           
-          </p>
-         
-        <!-- <h2 style="font-family: 'Times New Roman', Times, serif"> -->
-        </v-card-title>
-        <p class="description" style="font-family: 'Times New Roman', Times, serif">
-          Welcome to our portal, where we believe in empowering students like
-          you to shape their own future. Your career journey is a canvas waiting
-          for your creativity and determination to paint a vibrant picture of
-          success. Build a standout resume and portfolio that showcases your
-          unique talents and accomplishments. We're here to provide you with the
-          tools and guidance to seize every opportunity that comes your way.
-          Embrace the possibilities that lie ahead, as you embark on a path
-          towards a fulfilling and rewarding career. Your dreams are within
-          reach, and we're excited to be part of your journey.
-        </p>
-      </v-col>
-      <v-col cols="6" style="height: 100%;">
-        <v-img src="../assets/grad4.png" alt="Background Image"></v-img>
-      </v-col>
-    </v-row>
-  </v-card>
-</template>
   <script>
   import router from '../router/index'
   import jwtDecode from 'jwt-decode';
@@ -102,14 +64,16 @@ import axios from 'axios';
       })
 
     },
-    methods: {
-      logout() {
-        localStorage.clear("token");
-        router.push("/user/login");
-      },
-    },
+    // methods: {
+    //   logout() {
+    //     localStorage.clear("token");
+    //     router.push("/user/login");
+    //   },
+    // },
   };
   </script>
+
+  
   <style scoped>
 
 .custom-border {

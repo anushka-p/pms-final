@@ -23,7 +23,7 @@
 
 <script>
 import axios from "axios";
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
   export default {
     data() {
       return {
@@ -69,6 +69,7 @@ import axios from "axios";
           localStorage.setItem('token', token);
           if(response.data.message == "student route"){
             console.log("student");
+            
             this.$router.push('/student/home');
           }
           else if(response.data.message == "college route"){

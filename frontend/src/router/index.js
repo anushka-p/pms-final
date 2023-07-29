@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginPage from "../views/UserLogin.vue";
 import jwt_decode from "jwt-decode";
 
-// import store from '../store'
+import store from '../store'
 
 const routes = [
   {
