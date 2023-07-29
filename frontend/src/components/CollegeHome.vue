@@ -1,22 +1,6 @@
 <template>
-<<<<<<< Updated upstream
   <v-container>
-    <!-- Section 1: First vertical section -->
-    <!-- <v-app-bar app color="primary" dark>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-spacer></v-spacer>
-      <v-btn text color="white" @click="logout">Logout</v-btn>
-
-    </v-app-bar>
-=======
-    <v-container>
-      <!-- Section 1: First vertical section -->
-      <!-- <v-app-bar app color="primary" dark>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-spacer></v-spacer>
-      <v-btn text color="white" @click="logout">Logout</v-btn>
-    </v-app-bar> -->
->>>>>>> Stashed changes
+  
       <v-row>
         
         <v-col cols="12" md="6">
@@ -26,7 +10,8 @@
             class="section-card">
             <v-card-title class="section-title">Section 1</v-card-title>
             <v-card-text>
-              <!-- Content for section 1 goes here -->
+               <!-- Content for section 1 goes here -->
+
               <v-btn color="primary" @click="showAllStudents"
                 >Show Student Data</v-btn
               >
@@ -150,9 +135,6 @@ methods: {
     },
   },
 };
-<<<<<<< Updated upstream
-</script> 
-=======
 </script>
   /* Custom styling */
 
@@ -179,7 +161,6 @@ methods: {
   margin-bottom: 16px;
 }
   </style>
->>>>>>> Stashed changes
   
   // <style scoped>
 -->

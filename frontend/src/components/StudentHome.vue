@@ -1,6 +1,5 @@
 <template>
   <v-card class="pa-10">
-<<<<<<< Updated upstream
     <!-- <v-app-bar app color="primary">
       <v-toolbar-title>Student Portfolio</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -43,8 +42,6 @@
     </v-main> -->
   </v-card>
 </template>
-=======
->>>>>>> Stashed changes
   
     <v-row class="content-row">
       <v-col class="custom-border" cols="6" >
@@ -75,43 +72,6 @@
   </v-card>
 </template>
   <script>
-<<<<<<< Updated upstream
-import router from "../router/index";
-import jwtDecode from "jwt-decode";
-import axios from "axios";
-export default {
-  data() {
-    return {
-      studentName: "John Doe", // Replace with actual student name
-      bio: "This is the student bio.", // Replace with actual student bio
-      portfolioExists: false,
-    };
-  },
-  mounted() {
-    // const token = localStorage.getItem("token");
-    // const decodedToken = jwtDecode(token);
-    // const user_id = decodedToken.user_id;
-    // axios.get(`/student/getall/${user_id}`).then((response) => {
-    //   console.log(response);
-    //   if (!response.data.message) {
-    //     this.portfolioExists = true;
-    //   } else {
-    //     this.portfolioExists;
-    //   }
-    // });
-  },
-  methods: {
-    logout() {
-      localStorage.clear("token");
-      router.push("/user/login");
-    },
-  },
-};
-</script>
-<style scoped>
-
-  .content-row {
-=======
   import router from '../router/index'
   import jwtDecode from 'jwt-decode';
 import axios from 'axios';
@@ -160,7 +120,6 @@ import axios from 'axios';
   background-color: #F5F5F5;
 }
 .content-row {
->>>>>>> Stashed changes
     align-items: flex-start;
   }
 
@@ -176,11 +135,6 @@ import axios from 'axios';
 
   .description {
     font-family: 'Times New Roman', Times, serif;
-<<<<<<< Updated upstream
-    text-align: left;
-  }
-
-=======
     text-align: justify;
     margin-top: 30px;
     margin-left: 40px;
@@ -195,7 +149,6 @@ import axios from 'axios';
     text-decoration: underline;
     line-height: 1.5;
   }
->>>>>>> Stashed changes
   /* Add additional spacing if needed */
   @media only screen and (min-width: 600px) {
     .content-row {
@@ -203,10 +156,6 @@ import axios from 'axios';
     }
   }
 
-<<<<<<< Updated upstream
-</style>
-=======
 </style>
 
   
->>>>>>> Stashed changes
