@@ -102,6 +102,16 @@ viewPortfolio : (body, callback)=>{
     throw error;
   }
 },
+getStudentNamebyUserid: async(user_id)=>{
+  const query =`SELECT firstname FROM users WHERE user_id=${user_id}`;
+  const result = await client.query(query);
+  if(result.rows.length == 0){
+    return {message: "Student not found"}
+  }
+  else{
+    return result.rows[0];
+  }
+},
 getstudentdata : async(user_id)=>
 {
    const query = `SELECT * FROM users WHERE user_id= ${user_id}`;
@@ -137,7 +147,7 @@ updatePortfoliobyuserid: async(body)=>{
     body.firstname,
     body.lastname,
     body.course,
-    body.phoneno,
+    body.phone,
     body.branch,
     body.semester_training,
     body.cgpa,

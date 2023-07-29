@@ -11,21 +11,20 @@ const addPortfolio = async (req, res) => {
       const collegeResult = await studentServices.checkCollege(body);
   
       if (collegeResult.rowCount === 0) {
-        return res.status(500).json({
+        return res.status(200).json({
+          exists: false,
           message: "College name not registered.....",
         });
       }
   
       const cid = collegeResult.rows[0].cid;
-      console.log("cid: ", cid);
-
       // Step 2: Insert the portfolio data into the database with the obtained cid
       const portfolioData = { ...body, cid };
       const createPortfolioResult = await studentServices.createPortfolio(portfolioData);
   
       return res.status(200).json({
+        exists: true,
         data: createPortfolioResult,
-        message: 'Portfolio created.'
       });
     } catch (error) {
       console.log("Error submitting portfolio:", error);
@@ -91,10 +90,29 @@ const addupdatedPortfolio = async (req,res)=>{
       message: 'Internal Server Error',
     });
   }
-}
+};
+const getStudentName = async (req,res)=>{
+  try{
+    const user_id = req.params.user_id;
+    const studname = await studentServices.getStudentNamebyUserid(user_id);
+    if(studname.message){
+      res.json({message : studname.message})
+  }
+  else{
+      return res.status(200).json({
+          data: studname,
+        });
+  }
+  }catch (error) {
+          console.error('Error fetching student data:', error);
+          return res.status(500).json({
+            message: 'Internal Server Error',
+          });
+        }
+};
 
 
-module.exports = { addPortfolio, getPortfolio1, addupdatedPortfolio,getallStudents };
+module.exports = { addPortfolio, getPortfolio1, addupdatedPortfolio,getallStudents,getStudentName };
 // console.log("here")
     // const result = await studentServices.getPortfolio();
     // if (!result.rows || result.rows.length === 0) {

@@ -5,7 +5,7 @@
             <v-container>
         <v-row>
           <v-col cols="12">
-            <v-text-field v-model="email" label="Email" required></v-text-field>
+            <v-text-field v-model="email" label="Email" required></v-text-field>     
           </v-col>
         </v-row>
         <v-row>
@@ -31,26 +31,29 @@ import axios from "axios";
         password: '',
       };
     },
-    //  mounted(){
-    //     const token= localStorage.getItem("token");
-    //     const decodedToken= jwtDecode(token);
-    //     const user_role= decodedToken.role;
-    //     if(token!=null)
-    //     {
-    //       if(user_role == "student")
-    //       {
-    //       this.$router.push("/student/home");
-    //       }
-    //       else{
-    //         this.$router.push("/college/home");
-    //       }
-    //     }
-    // },
+     mounted(){
+        const token= localStorage.getItem("token");
+        
+        if(token!=null)
+        {
+          const decodedToken= jwtDecode(token);
+        const user_role= decodedToken.role;
+          if(user_role == "student")
+          {
+          this.$router.push("/student/home");
+          }
+          else{
+            this.$router.push("/college/home");
+          }
+        }
+    },
     methods: {
       
      async loginUser() {
+      
   try {
     if (this.$refs.form.validate()) {
+      // console.log("ffffffff");
           const user = {
             email: this.email,
             password: this.password

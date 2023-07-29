@@ -1,11 +1,5 @@
-<template v-if="">
-    <v-app>
-      <v-main>
-        <v-container>
+<template>
           <CollegeNew />
-        </v-container>
-      </v-main>
-    </v-app>
   </template>
   
   <script>

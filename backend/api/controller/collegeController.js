@@ -85,5 +85,7 @@ const getStudentsHavingInternships = async(req,res)=>{
           });
         }
   };
-module.exports={addCollegeDetails, getcollegebyid, getStudentbyCollegeid, getStudentsHavingInternships}
+  
+module.exports={addCollegeDetails, getcollegebyid, getStudentbyCollegeid, getStudentsHavingInternships
+}
 

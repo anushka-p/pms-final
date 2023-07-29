@@ -1,5 +1,6 @@
 <template>
   <v-card class="pa-10">
+<<<<<<< Updated upstream
     <!-- <v-app-bar app color="primary">
       <v-toolbar-title>Student Portfolio</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -42,8 +43,39 @@
     </v-main> -->
   </v-card>
 </template>
+=======
+>>>>>>> Stashed changes
   
+    <v-row class="content-row">
+      <v-col class="custom-border" cols="6" >
+        <v-card-title>
+          <p class="pclass">
+            <b> Welcome, {{ studentName }}</b>
+           
+          </p>
+         
+        <!-- <h2 style="font-family: 'Times New Roman', Times, serif"> -->
+        </v-card-title>
+        <p class="description" style="font-family: 'Times New Roman', Times, serif">
+          Welcome to our portal, where we believe in empowering students like
+          you to shape their own future. Your career journey is a canvas waiting
+          for your creativity and determination to paint a vibrant picture of
+          success. Build a standout resume and portfolio that showcases your
+          unique talents and accomplishments. We're here to provide you with the
+          tools and guidance to seize every opportunity that comes your way.
+          Embrace the possibilities that lie ahead, as you embark on a path
+          towards a fulfilling and rewarding career. Your dreams are within
+          reach, and we're excited to be part of your journey.
+        </p>
+      </v-col>
+      <v-col cols="6" style="height: 100%;">
+        <v-img src="../assets/grad4.png" alt="Background Image"></v-img>
+      </v-col>
+    </v-row>
+  </v-card>
+</template>
   <script>
+<<<<<<< Updated upstream
 import router from "../router/index";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
@@ -79,6 +111,56 @@ export default {
 <style scoped>
 
   .content-row {
+=======
+  import router from '../router/index'
+  import jwtDecode from 'jwt-decode';
+import axios from 'axios';
+  export default {
+    
+    data() {
+      return {
+        studentName: '', // Replace with actual student name
+        portfolioExists: false
+      };
+    },
+    mounted(){
+      const token = localStorage.getItem("token");
+      const decodedToken = jwtDecode(token);
+      const user_id = decodedToken.user_id;
+       axios.get(`/student/get-name/${user_id}`).then(response=>{
+        this.studentName = response.data.data.firstname;
+      })
+      
+      axios.get(`/student/getall/${user_id}`)
+      .then(response => {
+        if(!response.data.message){
+        this.portfolioExists = true
+      }
+      else{
+        this.portfolioExists
+      }
+      })
+
+    },
+    methods: {
+      logout() {
+        localStorage.clear("token");
+        router.push("/user/login");
+      },
+    },
+  };
+  </script>
+  <style scoped>
+
+.custom-border {
+  border: 2px solid gray;
+  border-radius: 10px;
+  margin-top: 40px; /* You can customize the border style here */
+  height: 757px;
+  background-color: #F5F5F5;
+}
+.content-row {
+>>>>>>> Stashed changes
     align-items: flex-start;
   }
 
@@ -94,9 +176,26 @@ export default {
 
   .description {
     font-family: 'Times New Roman', Times, serif;
+<<<<<<< Updated upstream
     text-align: left;
   }
 
+=======
+    text-align: justify;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 25px;
+    line-height: 2;
+  }
+  .pclass{
+    text-align: center;
+    margin-top: 60px;
+    font-size: 40px;
+    text-decoration: underline;
+    line-height: 1.5;
+  }
+>>>>>>> Stashed changes
   /* Add additional spacing if needed */
   @media only screen and (min-width: 600px) {
     .content-row {
@@ -104,4 +203,10 @@ export default {
     }
   }
 
+<<<<<<< Updated upstream
 </style>
+=======
+</style>
+
+  
+>>>>>>> Stashed changes

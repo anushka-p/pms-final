@@ -69,16 +69,20 @@
     },
     methods: {
       async registerUser() {
-        if (await this.validateForm()) {
+        const info = {email: this.email};
+        const response = await axios.get("/user/checkmail", { params: info });
+        const isEmailAvailable = response.data.exists;
+        console.log(isEmailAvailable);
+        if (!isEmailAvailable && (await this.validateForm())) {
           const user = {
             email: this.email,
             password: this.password,
             role: this.role,
           };
           const data = await axios.post("/user/signup", user);
-          this.$router.push('/user/login');
+            this.$router.push('/user/login');
         } else {
-          console.log('Form is invalid. Please check the fields.');
+          alert("Email already exists");
         }
       },
       async validateForm() {

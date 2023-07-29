@@ -17,6 +17,7 @@
         </v-collapse>
       </v-card>
     </div>
+
   </template>
   
   <script>
@@ -29,9 +30,12 @@
     },
     methods: {
       toggleCollapse(student) {
-        // Toggle the collapsed state for the clicked student
-        console.log("hereree");
+        // student.collapsed = !student.collapsed;
+        if (!('collapsed' in student)) {
+        this.$set(student, 'collapsed', true);
+      } else {
         student.collapsed = !student.collapsed;
+      }
       },
     },
   };
@@ -42,6 +46,7 @@
   .student-card {
     margin-bottom: 16px;
     cursor: pointer;
+    margin-top: 30px;
   }
   </style>
   

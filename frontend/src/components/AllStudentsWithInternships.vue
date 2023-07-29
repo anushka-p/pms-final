@@ -42,6 +42,7 @@
   .student-card {
     margin-bottom: 16px;
     cursor: pointer;
+    margin-top: 30px;
   }
   </style>
   

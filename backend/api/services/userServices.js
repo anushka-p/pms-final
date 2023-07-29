@@ -16,6 +16,17 @@ module.exports = {
     });
   },
 
+CheckEmail : async(email)=>{
+  const query = `SELECT useremail FROM user_roles WHERE useremail = $1`;
+  const values = [email];
+  try {
+    const result = await client.query(query, values);
+      const available =result.rows.length>0;
+      return available;
+    }catch (error) {
+    throw error;
+  }
+},
   VerifyUser: (body, callback) => {
     console.log(body.email);
     query = `Select * from user_roles where useremail = '${body.email}' `;

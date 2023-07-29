@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="600">
+  <v-card class="mx-auto card" max-width="600" >
     <v-form @submit.prevent="UpdatePortfolio">
       <v-card-title class="headline">Student Portfolio</v-card-title>
       <v-card-text>
@@ -82,7 +82,7 @@ export default {
       firstname: "",
     lastname: "",
     course: "",
-    phoneno: "",
+    phone: "",
     branch: "",
     semester_training: null,
     cgpa: null,
@@ -154,4 +154,7 @@ setTimeout(() => {
 
 <style>
 /* Add custom styles here */
+.card{
+  margin-top: 30px;
+}
 </style>

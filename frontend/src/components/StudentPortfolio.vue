@@ -17,7 +17,7 @@
           <v-text-field v-model="course" label="Course" required color="primary"></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
-          <v-text-field v-model="phoneNo" label="Phone Number" type="tel" required color="primary"></v-text-field>
+          <v-text-field v-model="phoneNo" label="Phone Number" required color="primary"></v-text-field>
         </v-col>
       </v-row>
 
@@ -107,7 +107,13 @@
       user_id: user_id
             };
             const data = await axios.post("/student/add-portfolio", foliodata);
+            if (data.data.exists === false) {
+          alert("College name not registered...");
+        } else {
+          console.log("Portfolio added successfully");
           this.$router.push('/student/home');
+        }
+          
 
         }catch(e)
         {

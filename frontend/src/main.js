@@ -6,7 +6,7 @@
 
 // Components
 import App from './App.vue'
-
+import store from './store'
 // Composables
 import { createApp } from 'vue'
 import './axios'
@@ -16,6 +16,7 @@ import httpInterceptor from './interceptor'
 import { registerPlugins } from '@/plugins'
 
 const app = createApp(App)
+app.use(store)
 registerPlugins(app)
 httpInterceptor()
 app.mount('#app')

@@ -5,8 +5,12 @@ const jwt = require("jsonwebtoken");
 
 const signup = async (req, res) => {
   const body = req.body;
+  const email = body.email;
+  // const emailexists = await userServices.CheckEmail(email);
+  // if(emailexists.message)
+  
   body.password =  await bcrypt.hash(body.password, 10);
- userServices.createUser(body, (err, results) => {
+ await userServices.createUser(body, (err, results) => {
     if (err) {
       console.log(err);
       return res.status(500).json({
@@ -18,8 +22,20 @@ const signup = async (req, res) => {
       message:'User created.'
     });
   });
-};
 
+// else{
+//   return res.status(200).json({
+//     message: "Email already exists",
+//   });
+// }
+};
+const EmailExists = async (req, res)=>{
+  const body = req.body;
+  const email = req.query.email;
+  console.log(email);
+  const result = await userServices.CheckEmail(email);
+  res.json({ exists: result });
+};
 const login =async (req, res)=> {
   const body = req.body;
   await userServices.VerifyUser(body, async (err, results)=> {
@@ -55,4 +71,4 @@ const login =async (req, res)=> {
   });
 };
 
-module.exports = { signup, login };
+module.exports = { signup, login, EmailExists };

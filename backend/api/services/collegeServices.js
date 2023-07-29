@@ -62,7 +62,7 @@ module.exports= {
   },
   getStudentsWithInternships: async (cid) => {
     try {
-      const query = 'SELECT firstname, lastname FROM users WHERE cid = $1 AND internships = true;';
+      const query = 'SELECT firstname, lastname, course, phone FROM users WHERE cid = $1 AND internships = true;';
       const values = [cid];
       const result = await client.query(query, values);
       if(result.rows.length == 0){
